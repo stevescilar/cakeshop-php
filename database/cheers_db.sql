@@ -1,11 +1,11 @@
 -- phpMyAdmin SQL Dump
--- version 5.2.0
+-- version 5.2.1
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Mar 20, 2023 at 10:46 AM
--- Server version: 10.4.27-MariaDB
--- PHP Version: 8.2.0
+-- Generation Time: Jul 20, 2023 at 01:50 PM
+-- Server version: 10.4.28-MariaDB
+-- PHP Version: 8.2.4
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 START TRANSACTION;
@@ -56,7 +56,8 @@ CREATE TABLE `category_list` (
 --
 
 INSERT INTO `category_list` (`id`, `vendor_id`, `name`, `description`, `status`, `delete_flag`, `date_created`, `date_updated`) VALUES
-(16, 4, 'Fruits', 'Farm Fruits', 1, 0, '2023-03-20 12:37:48', NULL);
+(19, 5, 'Butter Cake', 'A butter cake is a cake in which one of the main ingredients is butter. Butter cake is baked with basic ingredients: butter, sugar, eggs, flour, and leavening agents such as baking powder or baking soda. It is considered one of the quintessential cakes in American baking', 1, 0, '2023-07-19 10:36:00', NULL),
+(20, 5, 'Sponge Cake', 'Sponge cake is a light cake made with egg whites, flour and sugar, sometimes leavened with baking powder. Some sponge cakes do not contain egg yolks, like angel food cake, but most of them do. Sponge cakes, leavened with beaten eggs, originated during the Renaissance, possibly in Spain.', 1, 0, '2023-07-19 10:37:29', NULL);
 
 -- --------------------------------------------------------
 
@@ -87,7 +88,9 @@ CREATE TABLE `client_list` (
 --
 
 INSERT INTO `client_list` (`id`, `code`, `firstname`, `middlename`, `lastname`, `gender`, `contact`, `address`, `email`, `password`, `avatar`, `status`, `delete_flag`, `date_created`, `date_updated`) VALUES
-(3, '202303-00001', 'stephen', 'm', 's', 'Male', '34567890-=', 'adsfgfhg', 'stevemuambi@gmail.com', 'ee0befcac394f14573def0a87afebc5b', 'uploads/clients/3.png?v=1679305164', 1, 0, '2023-03-20 12:39:23', '2023-03-20 12:39:24');
+(3, '202303-00001', 'stephen', 'm', 's', 'Male', '34567890-=', 'adsfgfhg', 'stevemuambi@gmail.com', 'ee0befcac394f14573def0a87afebc5b', 'uploads/clients/3.png?v=1679305164', 1, 0, '2023-03-20 12:39:23', '2023-03-20 12:39:24'),
+(4, '202307-00001', 'clare', '', 'clare', 'Female', '0705433738', 'kisumu', 'clare@gmail.com', 'b56ec6cb9c9024051caafef8b10ac75f', 'uploads/clients/4.png?v=1689752370', 1, 0, '2023-07-19 10:39:30', '2023-07-19 10:39:30'),
+(5, '202307-00002', 'guya', '', 'clare', 'Female', '0749433433', 'fs', 'guya@gmail.com', 'ee0befcac394f14573def0a87afebc5b', 'uploads/clients/5.png?v=1689853482', 1, 0, '2023-07-20 14:44:42', '2023-07-20 14:44:42');
 
 -- --------------------------------------------------------
 
@@ -108,7 +111,8 @@ CREATE TABLE `order_items` (
 --
 
 INSERT INTO `order_items` (`order_id`, `product_id`, `quantity`, `price`, `date_created`) VALUES
-(5, 9, 2, 60, '2023-03-20 12:39:54');
+(6, 10, 2, 600, '2023-07-19 10:40:01'),
+(7, 10, 2, 600, '2023-07-19 13:53:33');
 
 -- --------------------------------------------------------
 
@@ -133,7 +137,8 @@ CREATE TABLE `order_list` (
 --
 
 INSERT INTO `order_list` (`id`, `code`, `client_id`, `vendor_id`, `total_amount`, `delivery_address`, `status`, `date_created`, `date_updated`) VALUES
-(5, '202303-00001', 3, 4, 120, 'adsfgfhg', 2, '2023-03-20 12:39:54', '2023-03-20 12:40:31');
+(6, '202307-00001', 4, 5, 1200, 'kisumu', 3, '2023-07-19 10:40:01', '2023-07-19 10:42:55'),
+(7, '202307-00002', 4, 5, 1200, 'kisumu', 1, '2023-07-19 13:53:33', '2023-07-19 13:55:06');
 
 -- --------------------------------------------------------
 
@@ -160,7 +165,8 @@ CREATE TABLE `product_list` (
 --
 
 INSERT INTO `product_list` (`id`, `vendor_id`, `category_id`, `name`, `description`, `price`, `image_path`, `status`, `delete_flag`, `date_created`, `date_updated`) VALUES
-(9, 4, 16, 'Maembe', '&lt;p&gt;some maembes&lt;br&gt;&lt;/p&gt;', 60, 'uploads/products/9.png?v=1679305112', 1, 0, '2023-03-20 12:38:20', '2023-03-20 12:38:32');
+(10, 5, 20, 'Half Sponge Cake', '&lt;p&gt;&lt;span&gt;Sponge cake is a light cake made with egg whites, flour and sugar,\r\n sometimes leavened with baking powder. Some sponge cakes do not contain\r\n egg yolks, like angel food cake, but most of them do. Sponge cakes, \r\nleavened with beaten eggs, originated during the Renaissance, possibly \r\nin Spain.&lt;/span&gt;&lt;span&gt;&lt;span&gt;&lt;/span&gt;&lt;/span&gt;&lt;/p&gt;', 600, 'uploads/products/10.png?v=1689752296', 1, 0, '2023-07-19 10:38:15', '2023-07-19 10:38:16'),
+(11, 5, 19, 'Butter Cake 1/2 Kg', '&lt;p&gt;&lt;span&gt;Sponge cake is a light cake made with egg whites, flour and sugar,\r\n sometimes leavened with baking powder. Some sponge cakes do not contain\r\n egg yolks, like angel food cake, but most of them do. Sponge cakes, \r\nleavened with beaten eggs, originated during the Renaissance, possibly \r\nin Spain.&lt;/span&gt;&lt;span&gt;&lt;span&gt;&lt;/span&gt;&lt;/span&gt;&lt;/p&gt;', 1200, 'uploads/products/11.png?v=1689752670', 1, 0, '2023-07-19 10:43:41', '2023-07-19 10:44:30');
 
 -- --------------------------------------------------------
 
@@ -182,8 +188,11 @@ CREATE TABLE `shop_type_list` (
 --
 
 INSERT INTO `shop_type_list` (`id`, `name`, `status`, `delete_flag`, `date_created`, `date_updated`) VALUES
-(6, 'Supermarket', 1, 0, '2023-03-20 12:21:38', NULL),
-(7, 'kibanda', 1, 0, '2023-03-20 12:21:54', NULL);
+(6, 'Supermarket', 1, 1, '2023-03-20 12:21:38', '2023-07-19 10:15:54'),
+(7, 'kibanda', 1, 1, '2023-03-20 12:21:54', '2023-07-19 10:15:50'),
+(8, 'Supermarket', 1, 0, '2023-07-19 10:16:11', NULL),
+(9, 'Roadside', 1, 0, '2023-07-19 10:16:19', NULL),
+(10, 'School', 1, 0, '2023-07-19 10:16:27', NULL);
 
 -- --------------------------------------------------------
 
@@ -202,11 +211,11 @@ CREATE TABLE `system_info` (
 --
 
 INSERT INTO `system_info` (`id`, `meta_field`, `meta_value`) VALUES
-(1, 'name', 'Online Farm Management System'),
-(6, 'short_name', 'OFMS-Matiliku boys'),
-(11, 'logo', 'uploads/logo-1679302956.png'),
+(1, 'name', 'Cheers Cakes'),
+(6, 'short_name', 'Cheers Online Shop'),
+(11, 'logo', 'uploads/logo-1689750834.png'),
 (13, 'user_avatar', 'uploads/user_avatar.jpg'),
-(14, 'cover', 'uploads/cover-1679302956.png');
+(14, 'cover', 'uploads/cover-1689750835.png');
 
 -- --------------------------------------------------------
 
@@ -261,7 +270,7 @@ CREATE TABLE `vendor_list` (
 --
 
 INSERT INTO `vendor_list` (`id`, `code`, `shop_type_id`, `shop_name`, `shop_owner`, `contact`, `username`, `password`, `avatar`, `status`, `delete_flag`, `date_created`, `date_updated`) VALUES
-(4, '202303-00001', 7, 'Mwikali Shop', 'Mwikali', '08030838933', 'Mwikali', 'ccd683a0d1e2af142574c9f95915afef', 'uploads/vendors/4.png?v=1679305040', 1, 0, '2023-03-20 12:37:19', '2023-03-20 12:37:20');
+(5, '202307-00001', 9, 'Cheers Embakasi', 'Mr Mutwiri', '0703556889', 'mutwiri', '9f86091dbc267786ca31f5f705a9da29', 'uploads/vendors/5.png?v=1689752121', 1, 0, '2023-07-19 10:35:21', '2023-07-19 10:35:21');
 
 --
 -- Indexes for dumped tables
@@ -344,37 +353,37 @@ ALTER TABLE `vendor_list`
 -- AUTO_INCREMENT for table `cart_list`
 --
 ALTER TABLE `cart_list`
-  MODIFY `id` int(30) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=19;
+  MODIFY `id` int(30) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=21;
 
 --
 -- AUTO_INCREMENT for table `category_list`
 --
 ALTER TABLE `category_list`
-  MODIFY `id` int(30) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=17;
+  MODIFY `id` int(30) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=21;
 
 --
 -- AUTO_INCREMENT for table `client_list`
 --
 ALTER TABLE `client_list`
-  MODIFY `id` int(30) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
+  MODIFY `id` int(30) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
 
 --
 -- AUTO_INCREMENT for table `order_list`
 --
 ALTER TABLE `order_list`
-  MODIFY `id` int(30) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
+  MODIFY `id` int(30) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=8;
 
 --
 -- AUTO_INCREMENT for table `product_list`
 --
 ALTER TABLE `product_list`
-  MODIFY `id` int(30) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=10;
+  MODIFY `id` int(30) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=12;
 
 --
 -- AUTO_INCREMENT for table `shop_type_list`
 --
 ALTER TABLE `shop_type_list`
-  MODIFY `id` int(30) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=8;
+  MODIFY `id` int(30) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=11;
 
 --
 -- AUTO_INCREMENT for table `system_info`
@@ -392,7 +401,7 @@ ALTER TABLE `users`
 -- AUTO_INCREMENT for table `vendor_list`
 --
 ALTER TABLE `vendor_list`
-  MODIFY `id` int(30) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
+  MODIFY `id` int(30) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
 
 --
 -- Constraints for dumped tables
